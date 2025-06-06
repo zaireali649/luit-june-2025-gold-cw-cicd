@@ -1,7 +1,9 @@
 name: Deploy Logs to Cloudwatch
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy_logs:
