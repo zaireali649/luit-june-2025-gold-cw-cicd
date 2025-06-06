@@ -1,16 +1,18 @@
 import boto3
 import time
+import os
+
+log_group_name = os.getenv('LOG_GROUP_NAME', default='logs_from_repo_test')
 
 cloudwatch_logs = boto3.client('logs')
 # create a log group if it doesnt exist
-log_group_name = 'logs_from_repo_beta'
 list_log_groups_response = cloudwatch_logs.list_log_groups(
     logGroupNamePattern=log_group_name
 )
 
 foundLogGroups = list_log_groups_response["logGroups"]
 
-if foundLogGroups == 0:
+if len(foundLogGroups) == 0:
     create_log_group_response = cloudwatch_logs.create_log_group(
         logGroupName=log_group_name
     )
