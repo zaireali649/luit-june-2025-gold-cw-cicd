@@ -1,0 +1,7 @@
+
+
+********
+HcwDriverInstall Version 3.3.33083.0
+HcwDriverInstall Run AT Sun Aug 22 14:16:52 2021
+HcwDriverInstall Run AS C:\Users\Ziggy\AppData\Local\Temp\WIN10D~1\HCWDRI~1.EXE /silent /PATH:C:\Users\Ziggy\AppData\Local\Temp\WIN10D~1\ /NAME:HCWDRI~1.EXE
+
