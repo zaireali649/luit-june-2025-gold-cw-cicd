@@ -1,0 +1,27 @@
+name: Deploy Logs to Cloudwatch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_logs:
+    runs-on: ubuntu-latest
+    env:
+      LOG_GROUP_NAME: ${{ secrets.LOG_GROUP_PROD }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # Change this to your desired AWS region
+
+      - name: Deploy Logs
+        run: |
+          pip install boto3 --upgrade
+          python logs_to_cloudwatch.py
