@@ -19,4 +19,5 @@ jobs:
 
       - name: Deploy Logs
         run: |
+          pip install boto3 --upgrade
           python logs_to_cloudwatch.py
