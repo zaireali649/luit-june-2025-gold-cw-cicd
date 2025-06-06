@@ -18,6 +18,8 @@ jobs:
           aws-region: us-east-1  # Change this to your desired AWS region
 
       - name: Deploy Logs
+        with:
+          LOG_GROUP_NAME: ${{ secrets.LOG_GROUP_BETA }}
         run: |
           pip install boto3 --upgrade
           python logs_to_cloudwatch.py
